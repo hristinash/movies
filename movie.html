@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div style="display: flex;flex-direction: column;align-content: center; align-items: center">
+<div id="movie-details" class="details-container"></div>
+<a href="index.html" class="back-btn">Back to Movies</a>
+</div>
+<script>
+    const movie = JSON.parse(localStorage.getItem("selectedMovie"));
+    if (movie) {
+        document.getElementById("movie-details").innerHTML = `
+                <img src="${movie.image}" class="movie-image">
+                <h1>${movie.title}</h1>
+                <p>${movie.description}</p>
+                <p class="rating">⭐ ${movie.rating}</p>
+            `;
+    }
+</script>
+</body>
+</html>
